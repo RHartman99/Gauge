@@ -1,3 +1,12 @@
+const path = require("path");
+
 module.exports = {
-  reactStrictMode: true,
-}
+  devIndicators: {
+    autoPrerender: false,
+  },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, module: false };
+    config.resolve.alias["@"] = __dirname;
+    return config;
+  },
+};
